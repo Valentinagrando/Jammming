@@ -57,12 +57,26 @@ class App extends Component {
     });
   }
 
+  saveSearchTerm(searchTerm) {
+    sessionStorage.setItem('searchTerm', searchTerm);
+    var field = document.getElementById("field");
+    if (sessionStorage.getItem(searchTerm)) {
+  // Restore the contents of the text field
+    field.value = sessionStorage.getItem(searchTerm);
+  };
+    field.onChange("change", function() {
+      // And save the results into the session storage object
+    sessionStorage.setItem(searchTerm, field.value);
+  });
+  }
+
+
   render() {
     return (
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
           <div className="App">
-          <SearchBar onSearch={this.search} />
+          <SearchBar onSearch={this.search} saveSearchTerm= {this.saveSearchTerm} />
           <div className="App-playlist">
           <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
           <Playlist playlistName={this.state.playlistName}
