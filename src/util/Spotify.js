@@ -1,5 +1,7 @@
+import SearchBar from "../components/SearchBar/SearchBar.js";
+
 const clientID = '9a6c7b32f6f3410bb312f1245f31bb10';
-const redirectURI = "valentinajammming.surge.sh";
+const redirectURI = "http://valentinajammming.surge.sh";
 
 let accessToken ;
 

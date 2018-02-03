@@ -57,19 +57,6 @@ class App extends Component {
     });
   }
 
-  saveSearchTerm(searchTerm) {
-    sessionStorage.setItem('searchTerm', searchTerm);
-    var field = document.getElementById("field");
-    if (sessionStorage.getItem(searchTerm)) {
-  // Restore the contents of the text field
-    field.value = sessionStorage.getItem(searchTerm);
-  };
-    field.onChange("change", function() {
-      // And save the results into the session storage object
-    sessionStorage.setItem(searchTerm, field.value);
-  });
-  }
-
 
   render() {
     return (
